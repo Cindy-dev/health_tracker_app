@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:health_tracker/presentation/helper/navigation.dart';
 import 'package:health_tracker/presentation/screen/basic_info_screen.dart';
