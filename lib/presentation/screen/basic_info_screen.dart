@@ -11,13 +11,18 @@ class BasicInformationScreen extends StatefulWidget {
 
 class _BasicInformationScreenState extends State<BasicInformationScreen> {
   double _currentHeightSliderValue = 180;
-
   double _currentWidthSliderValue = 80;
+  int? selectedItem;
+  onSelect(int index) {
+    setState(() {
+      selectedItem = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final deviceH = MediaQuery.of(context).size.height;
     final deviceW = MediaQuery.of(context).size.width;
-
+int i;
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.fromLTRB(
@@ -30,60 +35,69 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                   fontSize: 32,
                   fontWeight: FontWeight.w500,
                 )),
-            Padding(
-              padding: EdgeInsets.only(top: deviceH / 19.85),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        height: deviceH / 6.5,
-                        width: deviceH / 6.6,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(
-                                color: const Color.fromRGBO(6, 20, 40, 0.15))),
-                        child: Image.asset(
-                            'asset/image/businessman_man_business 1.png'),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Text('Male',
-                          style: TextStyle(
-                            fontSize: deviceH / 52,
-                            fontWeight: FontWeight.w500,
-                          )),
-                    ],
-                  ),
-                  SizedBox(
-                    width: deviceH / 28,
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        height: deviceH / 6.5,
-                        width: deviceH / 6.6,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(
-                                color: const Color.fromRGBO(6, 20, 40, 0.15))),
-                        child: Image.asset(
-                            'asset/image/businesswoman_business_woman_working_girl 1.png'),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Text('Female',
-                          style: TextStyle(
-                            fontSize: deviceH / 52,
-                            fontWeight: FontWeight.w500,
-                          )),
-                    ],
-                  ),
-                ],
+            GestureDetector(
+              onTap: (){
+                //onSelect();
+              },
+              child: Padding(
+                padding: EdgeInsets.only(
+                    top: deviceH / 19.85,
+                    right: deviceW / 19,
+                    left: deviceW / 19),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          height: deviceH / 6.5,
+                          width: deviceH / 6.6,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(
+                                  color: const Color.fromRGBO(6, 20, 40, 0.15))),
+                          child: Image.asset(
+                              'asset/image/businessman_man_business 1.png'),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text('Male',
+                            style: TextStyle(
+                              fontSize: deviceH / 52,
+                              fontWeight: FontWeight.w500,
+                            )),
+                      ],
+                    ),
+                    SizedBox(
+                      width: deviceH / 19,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          height: deviceH / 6.5,
+                          width: deviceH / 6.6,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(
+                                  color: const Color.fromRGBO(6, 20, 40, 0.15))),
+                          child: Image.asset(
+                              'asset/image/businesswoman_business_woman_working_girl 1.png'),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text('Female',
+                            style: TextStyle(
+                              fontSize: deviceH / 52,
+                              fontWeight: FontWeight.w500,
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(
@@ -97,12 +111,15 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
             const SizedBox(
               height: 24,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                ImageIcon(AssetImage('asset/image/Group.png')),
-                ImageIcon(AssetImage('asset/image/Group (1).png'))
-              ],
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: deviceW / 22.9),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  ImageIcon(AssetImage('asset/image/Group.png')),
+                  ImageIcon(AssetImage('asset/image/Group (1).png'))
+                ],
+              ),
             ),
             Slider(
                 divisions: 100,
@@ -118,6 +135,28 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                         _currentHeightSliderValue = value;
                       })
                     }),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: deviceW / 22.9),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    '50cm',
+                    style: TextStyle(
+                        color: Color(0xff061428),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    '500cm',
+                    style: TextStyle(
+                        color: Color(0xff061428),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+            ),
             const SizedBox(
               height: 40,
             ),
@@ -129,12 +168,15 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
             const SizedBox(
               height: 24,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                ImageIcon(AssetImage('asset/image/Group.png')),
-                ImageIcon(AssetImage('asset/image/Group (1).png'))
-              ],
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: deviceW / 22.9),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  ImageIcon(AssetImage('asset/image/Group (1).png')),
+                  ImageIcon(AssetImage('asset/image/Group (2).png'))
+                ],
+              ),
             ),
             Slider(
                 divisions: 100,
@@ -150,11 +192,33 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                         _currentHeightSliderValue = value;
                       })
                     }),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: deviceW / 22.9),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    '20kg',
+                    style: TextStyle(
+                        color: Color(0xff061428),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    '200kg',
+                    style: TextStyle(
+                        color: Color(0xff061428),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(right: 40, bottom: 45),
+        padding: EdgeInsets.only(right: 40, bottom: deviceW / 29),
         child: FloatingActionButton(
           backgroundColor: const Color(0xff061428),
           onPressed: () {
