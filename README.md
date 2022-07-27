@@ -4,7 +4,10 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+<p align="center">
+  <img src="asset\image\Screenshot_20220727-201255.png" width="350" title = "home screen">
+  <img src="asset\image\Screenshot_1658697605.png" width="350" alt="user information screen">                                                    
+</p>
 
 A few resources to get you started if this is your first Flutter project:
 

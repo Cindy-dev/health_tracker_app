@@ -12,8 +12,8 @@ class BasicInformationScreen extends StatefulWidget {
 class _BasicInformationScreenState extends State<BasicInformationScreen> {
   double _currentHeightSliderValue = 180;
   double _currentWidthSliderValue = 80;
-  late Key maleContainer;
-  late Key femaleContainer;
+  //late Key maleContainer;
+  //late Key femaleContainer;
   int? selectedItem;
   onSelect(int index) {
     setState(() {
@@ -56,7 +56,7 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                     Column(
                       children: [
                         Container(
-                          key: maleContainer,
+                       //   key: maleContainer,
                           height: deviceH / 6.5,
                           width: deviceH / 6.6,
                           decoration: BoxDecoration(
@@ -83,7 +83,7 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                     Column(
                       children: [
                         Container(
-                          key: femaleContainer,
+                          //key: femaleContainer,
                           height: deviceH / 6.5,
                           width: deviceH / 6.6,
                           decoration: BoxDecoration(
