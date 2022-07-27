@@ -12,17 +12,20 @@ class BasicInformationScreen extends StatefulWidget {
 class _BasicInformationScreenState extends State<BasicInformationScreen> {
   double _currentHeightSliderValue = 180;
   double _currentWidthSliderValue = 80;
+  late Key maleContainer;
+  late Key femaleContainer;
   int? selectedItem;
   onSelect(int index) {
     setState(() {
       selectedItem = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     final deviceH = MediaQuery.of(context).size.height;
     final deviceW = MediaQuery.of(context).size.width;
-int i;
+
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.fromLTRB(
@@ -36,10 +39,11 @@ int i;
                   fontWeight: FontWeight.w500,
                 )),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 //onSelect();
+                
               },
-              child: Padding(
+             child: Padding(
                 padding: EdgeInsets.only(
                     top: deviceH / 19.85,
                     right: deviceW / 19,
@@ -52,12 +56,14 @@ int i;
                     Column(
                       children: [
                         Container(
+                          key: maleContainer,
                           height: deviceH / 6.5,
                           width: deviceH / 6.6,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               border: Border.all(
-                                  color: const Color.fromRGBO(6, 20, 40, 0.15))),
+                                  color:
+                                      const Color.fromRGBO(6, 20, 40, 0.15))),
                           child: Image.asset(
                               'asset/image/businessman_man_business 1.png'),
                         ),
@@ -77,12 +83,14 @@ int i;
                     Column(
                       children: [
                         Container(
+                          key: femaleContainer,
                           height: deviceH / 6.5,
                           width: deviceH / 6.6,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               border: Border.all(
-                                  color: const Color.fromRGBO(6, 20, 40, 0.15))),
+                                  color:
+                                      const Color.fromRGBO(6, 20, 40, 0.15))),
                           child: Image.asset(
                               'asset/image/businesswoman_business_woman_working_girl 1.png'),
                         ),
