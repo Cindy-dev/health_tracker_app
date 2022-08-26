@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_tracker/presentation/helper/home_helper.dart';
 import '../helper/navigation.dart';
 import 'home_screen.dart';
 
@@ -12,13 +13,10 @@ class BasicInformationScreen extends StatefulWidget {
 class _BasicInformationScreenState extends State<BasicInformationScreen> {
   double _currentHeightSliderValue = 180;
   double _currentWidthSliderValue = 80;
-  //late Key maleContainer;
-  //late Key femaleContainer;
-  int? selectedItem;
-  onSelect(int index) {
-    setState(() {
-      selectedItem = index;
-    });
+
+
+  void swapContainers() {
+    setState(() {});
   }
 
   @override
@@ -41,9 +39,8 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
             GestureDetector(
               onTap: () {
                 //onSelect();
-                
               },
-             child: Padding(
+              child: Padding(
                 padding: EdgeInsets.only(
                     top: deviceH / 19.85,
                     right: deviceW / 19,
@@ -53,57 +50,11 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Column(
-                      children: [
-                        Container(
-                       //   key: maleContainer,
-                          height: deviceH / 6.5,
-                          width: deviceH / 6.6,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(
-                                  color:
-                                      const Color.fromRGBO(6, 20, 40, 0.15))),
-                          child: Image.asset(
-                              'asset/image/businessman_man_business 1.png'),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text('Male',
-                            style: TextStyle(
-                              fontSize: deviceH / 52,
-                              fontWeight: FontWeight.w500,
-                            )),
-                      ],
-                    ),
+                    maleContainer(deviceH),
                     SizedBox(
                       width: deviceH / 19,
                     ),
-                    Column(
-                      children: [
-                        Container(
-                          //key: femaleContainer,
-                          height: deviceH / 6.5,
-                          width: deviceH / 6.6,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(
-                                  color:
-                                      const Color.fromRGBO(6, 20, 40, 0.15))),
-                          child: Image.asset(
-                              'asset/image/businesswoman_business_woman_working_girl 1.png'),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text('Female',
-                            style: TextStyle(
-                              fontSize: deviceH / 52,
-                              fontWeight: FontWeight.w500,
-                            )),
-                      ],
-                    ),
+                    femaleContainer(deviceH),
                   ],
                 ),
               ),
