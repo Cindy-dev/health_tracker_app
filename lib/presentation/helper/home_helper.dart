@@ -54,47 +54,38 @@ Widget card(
   );
 }
 
-Widget maleContainer(double deviceH){
-  return Expanded(
-    child: Column(
-      children: [
-        Container(
-          key: UniqueKey(),
-          height: deviceH / 6.5,
-          width: deviceH / 6.6,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(
-                  color:
-                  const Color.fromRGBO(6, 20, 40, 0.15))),
-          child: Image.asset(
-              'asset/image/businessman_man_business 1.png'),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        Text('Male',
-            style: TextStyle(
-              fontSize: deviceH / 52,
-              fontWeight: FontWeight.w500,
-            )),
-      ],
-    ),
+Widget maleContainer(double deviceH, {required Color color}) {
+  return Column(
+    children: [
+      Container(
+        height: deviceH / 6.5,
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: const Color.fromRGBO(6, 20, 40, 0.15))),
+        child: Image.asset('asset/image/businessman_man_business 1.png'),
+      ),
+      const SizedBox(
+        height: 8,
+      ),
+      Text('Male',
+          style: TextStyle(
+            fontSize: deviceH / 52,
+            fontWeight: FontWeight.w500,
+          )),
+    ],
   );
 }
 
-Widget femaleContainer(double deviceH){
-  return  Column(
+Widget femaleContainer(double deviceH, {required Color color}) {
+  return Column(
     children: [
       Container(
-        key: UniqueKey(),
         height: deviceH / 6.5,
-        width: deviceH / 6.6,
         decoration: BoxDecoration(
+            color: color,
             borderRadius: BorderRadius.circular(15),
-            border: Border.all(
-                color:
-                const Color.fromRGBO(6, 20, 40, 0.15))),
+            border: Border.all(color: const Color.fromRGBO(6, 20, 40, 0.15))),
         child: Image.asset(
             'asset/image/businesswoman_business_woman_working_girl 1.png'),
       ),

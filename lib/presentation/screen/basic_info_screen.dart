@@ -13,11 +13,7 @@ class BasicInformationScreen extends StatefulWidget {
 class _BasicInformationScreenState extends State<BasicInformationScreen> {
   double _currentHeightSliderValue = 180;
   double _currentWidthSliderValue = 80;
-
-
-  void swapContainers() {
-    setState(() {});
-  }
+  String selected = '';
 
   @override
   Widget build(BuildContext context) {
@@ -36,27 +32,36 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                   fontSize: 32,
                   fontWeight: FontWeight.w500,
                 )),
-            GestureDetector(
-              onTap: () {
-                //onSelect();
-              },
-              child: Padding(
-                padding: EdgeInsets.only(
-                    top: deviceH / 19.85,
-                    right: deviceW / 19,
-                    left: deviceW / 19),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    maleContainer(deviceH),
-                    SizedBox(
-                      width: deviceH / 19,
-                    ),
-                    femaleContainer(deviceH),
-                  ],
-                ),
+            Padding(
+              padding: EdgeInsets.only(
+                  top: deviceH / 19.85,
+                  right: deviceW / 19,
+                  left: deviceW / 19),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selected = 'male';
+                        });
+                      },
+                      child: maleContainer(deviceH,
+                          color:
+                              selected == 'male' ? Colors.red : Colors.white)),
+                  GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selected = 'female';
+                        });
+                      },
+                      child: femaleContainer(deviceH,
+                          color: selected == 'female'
+                              ? Colors.red
+                              : Colors.white)),
+                ],
               ),
             ),
             const SizedBox(
